@@ -16,10 +16,13 @@ public class Room {
 
     private boolean minibar;
 
-    public Room(int id, RoomSize size, boolean minibar){
+    private boolean booked;
+
+    public Room(int id, RoomSize size, boolean minibar, boolean booked){
         this.roomNumber = id;
         this.size = size;
         this.minibar = minibar;
+        this.booked = booked;
     }
 
     protected Room(){
@@ -43,5 +46,13 @@ public class Room {
     
     public void setMinibar(boolean minibar){
         this.minibar = minibar;
+    }
+
+    public boolean getBooked(){
+        return this.booked;
+    }
+
+    public void setBooked(boolean booked){
+        this.booked = booked;
     }
 }

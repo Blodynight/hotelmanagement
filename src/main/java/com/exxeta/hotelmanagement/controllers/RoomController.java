@@ -43,8 +43,8 @@ public class RoomController {
     }
 
     @PatchMapping("/room/{roomNumber}")
-    public Room patchRoom(@PathVariable int roomNumber, @RequestParam RoomSize size, @RequestParam String minibar){
-        return roomService.patchRoom(roomNumber, size, minibar);
+    public Room patchRoom(@PathVariable int roomNumber, @RequestParam RoomSize size, @RequestParam String minibar, @RequestParam String booked){
+        return roomService.patchRoom(roomNumber, size, minibar, booked);
     }
 
     @DeleteMapping("room/{roomNumber}")

@@ -29,7 +29,7 @@ public class RoomService {
      * @return              created room
      */
     public Room createRoom(int roomNumber, RoomSize roomSize, boolean minibar){
-        Room room = new Room(roomNumber, roomSize, minibar);
+        Room room = new Room(roomNumber, roomSize, minibar, false);
         if(roomRepository.findById(roomNumber) != null){
             throw new ResponseStatusException(HttpStatus.CONFLICT, "There already exists a room with the number[" + roomNumber + "]");
         } else {
@@ -71,7 +71,7 @@ public class RoomService {
      * @param minibar       new (or not) variable referring to if the room has a minibar or not
      * @return              room with changed variables
      */
-    public Room patchRoom(int roomNumber, RoomSize size, String minibar){
+    public Room patchRoom(int roomNumber, RoomSize size, String minibar, String booked){
         Room room = roomRepository.findById(roomNumber);
 
         if(room == null){
@@ -84,6 +84,10 @@ public class RoomService {
 
         if(size != null){
             room.setSize(size);
+        }
+
+        if(minibar != null){
+            room.setBooked(Boolean.parseBoolean(booked));
         }
 
         roomRepository.save(room);

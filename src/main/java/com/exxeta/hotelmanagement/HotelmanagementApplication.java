@@ -21,9 +21,9 @@ public class HotelmanagementApplication {
     @Bean
     CommandLineRunner demo(RoomRepository repository) {
 		return (args) -> {
-			repository.save(new Room(1, RoomSize.DOPPELZIMMER, true));
-			repository.save(new Room(2, RoomSize.EINZELZIMMER, true));
-			repository.save(new Room(3, RoomSize.SUITE, false));
+			repository.save(new Room(1, RoomSize.DOPPELZIMMER, true, false));
+			repository.save(new Room(2, RoomSize.EINZELZIMMER, true, false));
+			repository.save(new Room(3, RoomSize.SUITE, false, false));
 		};
 	}
 
