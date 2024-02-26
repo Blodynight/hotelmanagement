@@ -38,6 +38,16 @@ public class RoomService {
         }
     }
 
+    public void deleteRoom(int roomNumber){
+        Room room = roomRepository.findById(roomNumber);
+        if(room != null){
+            roomRepository.delete(room);
+        }else{
+            throw new IllegalArgumentException("Room is null");
+        }
+        
+    }
+
     /**
      * Searches Room by given room number if it exists
      * @param roomNumber    given identifier of a room

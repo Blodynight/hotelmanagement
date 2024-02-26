@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,14 +37,19 @@ public class RoomController {
     }
     
 
-    @PutMapping("room/{roomNumber}")
+    @PutMapping("/room/{roomNumber}")
     public Room putMethodName(@PathVariable int roomNumber, @RequestParam RoomSize size, @RequestParam boolean minibar) {
         return roomService.createRoom(roomNumber, size, minibar);
     }
 
-    @PatchMapping("room/{roomNumber}")
+    @PatchMapping("/room/{roomNumber}")
     public Room patchRoom(@PathVariable int roomNumber, @RequestParam RoomSize size, @RequestParam String minibar){
         return roomService.patchRoom(roomNumber, size, minibar);
+    }
+
+    @DeleteMapping("room/{roomNumber}")
+    public void deleteRoom(@PathVariable int roomNumber){
+        roomService.deleteRoom(roomNumber);
     }
 
 }
