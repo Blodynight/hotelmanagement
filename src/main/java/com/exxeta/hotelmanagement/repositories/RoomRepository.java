@@ -2,8 +2,6 @@ package com.exxeta.hotelmanagement.repositories;
 
 import com.exxeta.hotelmanagement.models.Room;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -13,6 +11,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface RoomRepository extends JpaRepository<Room, Integer>{
 
     Room findById(int id);
-
-    List<Room> findAll();
 }
